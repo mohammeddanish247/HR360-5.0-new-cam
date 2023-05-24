@@ -1,0 +1,46 @@
+ion-content {
+    position: absolute;
+
+    .slide {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 40%;
+        //background-color: hsl(205, 85%, 15%);
+
+        p {
+            text-align: center;
+            margin-top: 20%;
+        }
+    }
+
+
+    .details {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        // height: 70%;
+        background-color: white;
+        z-index: 1;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        
+    }
+    
+
+}
+
+ion-card {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    border-radius: 15px;
+
+    h2{
+        color: #ffffff;
+        font-size: large;
+    }
+}
+
+ion-toggle {
+    width: 50px;
+  }

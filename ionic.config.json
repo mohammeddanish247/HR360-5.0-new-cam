@@ -1,0 +1,7 @@
+{
+  "name": "HR360-Beta",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

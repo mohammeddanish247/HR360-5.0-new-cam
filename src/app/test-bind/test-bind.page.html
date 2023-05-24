@@ -1,0 +1,117 @@
+<ion-content>
+
+    <ion-grid class="grid1">
+    
+        <ion-row class="row1">
+            <ion-col>
+    
+            </ion-col>
+        </ion-row>
+    
+        <ion-row class="row2">
+            <ion-col>
+    
+            </ion-col>
+        </ion-row>
+    
+    </ion-grid>
+    
+    <ion-slide>
+        <div class="contaier-login">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <h1>Iniciar Sesión</h1>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-list>
+    
+                            <ion-item>
+                                <ion-icon name="person" class="icon-login"></ion-icon>
+                                <ion-input name="user" type="text" required placeholder="Usuario"></ion-input>
+                            </ion-item>
+                            <br />
+                            <ion-item>
+                                <ion-icon name="lock" class="icon-login"></ion-icon>
+                                <ion-input name="password" type="password" required placeholder="Contraseña"></ion-input>
+                            </ion-item>
+    
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-button type="submit" fill="solid" expand="full">
+                            Entrar
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-label>
+                            <h3>¿Olvido la contraseña?</h3>
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </ion-slide>
+
+<!-- <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div class="card m-3">
+        <h5 class="card-header">Angular 10 Dynamic Reactive Forms Example</h5>
+
+
+        <div class="card-body border-bottom">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Number of Tickets</label>
+                    <select formControlName="numberOfTickets" class="form-control" (change)="onChangeTickets($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTickets.errors }">
+                        <option value=""></option>
+                        <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.numberOfTickets.errors" class="invalid-feedback">
+                        <div *ngIf="f.numberOfTickets.errors.required">Number of tickets is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div *ngFor="let ticket of ticketFormGroups; let i = index" class="list-group list-group-flush">
+            <div class="list-group-item">
+                <h5 class="card-title">Ticket {{i + 1}}</h5>
+                <div [formGroup]="ticket" class="form-row">
+                    <div class="form-group col-6">
+                        <label>Name</label>
+                        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && ticket.controls.name.errors }" />
+                        <div *ngIf="submitted && ticket.controls.name.errors" class="invalid-feedback">
+                            <div *ngIf="ticket.controls.name.errors.required">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && ticket.controls.email.errors }" />
+                        <div *ngIf="submitted && ticket.controls.email.errors" class="invalid-feedback">
+                            <div *ngIf="ticket.controls.email.errors.required">Email is required</div>
+                            <div *ngIf="ticket.controls.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center border-top-0">
+            <button class="btn btn-primary mr-1" (click)="onBuy()">Buy Tickets</button>
+            <button class="btn btn-secondary mr-1" type="reset" (click)="onReset()">Reset</button>
+            <button class="btn btn-secondary" type="button" (click)="onClear()">Clear</button>
+        </div>
+    </div>
+</form>
+
+
+  
+    <ion-button (click)="onBuy()">NXT</ion-button>
+
+  -->

@@ -1,0 +1,188 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title style="font-size: 16px;">Site Survay Report Images</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [hidden]="boiler">
+    <ion-item lines="full">
+      <p><b>Boiler Image - </b>Stand back and take a pic of the boiler</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg1('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg1('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="BoilerImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="BoilerImage" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Boiler_pipe_work">
+    <ion-item lines="full">
+      <p>Boiler_pipe_work Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg2('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg2('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="Boilerpipework != 'data:image/jpeg;base64,null' ">
+      <img [src]="Boilerpipework" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Condensate_termination">
+    <ion-item lines="full">
+      <p>Condensate_termination Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg3('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg3('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="CondensateterminationImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="CondensateterminationImage" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Fuse_spur">
+    <ion-item lines="full">
+      <p>Fuse_spur Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg4('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg4('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="FusespurImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="FusespurImage" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Internal_flue">
+    <ion-item lines="full">
+      <p>Internal_flue Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg5('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg5('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="InternalflueImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="InternalflueImage" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="flueInLoft">
+    <ion-item lines="full">
+      <p>Flue In Loft</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg6('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg6('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="StopTapImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="StopTapImage" />
+    </ion-card>
+  </div>
+
+
+  <div [hidden]="External_flue_terminal">
+    <ion-item lines="full">
+      <p>External_flue_terminal Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg7('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg7('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="ExternalflueterminalImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="ExternalflueterminalImage" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Airing_Cupboard_Cylinder">
+    <ion-item lines="full">
+      <p>Airing_Cupboard_Cylinder Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg8('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg8('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="AiringCupboardCylinderImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="AiringCupboardCylinderImage" />
+    </ion-card>
+  </div>
+
+
+  <div [hidden]="STLI_Flag">
+    <ion-item lines="full">
+      <p>Stop Tap Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg9('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg9('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="STLI != 'data:image/jpeg;base64,null' ">
+      <img [src]="STLI" />
+    </ion-card>
+  </div>
+
+  
+
+  <div [hidden]="Drain_off_location_flag">
+    <ion-item lines="full">
+      <p>Drain Off Location Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg10('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg10('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="DrainOffLocationFlagImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="DrainOffLocationFlagImage" />
+    </ion-card>
+  </div>
+
+
+  
+  <div [hidden]="GasMeterFlag">
+    <ion-item lines="full">
+      <p>Gas Meter</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg11('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg11('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="GasMeterImage!= 'data:image/jpeg;base64,null' ">
+      <img [src]="GasMeterImage" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Additional">
+    <ion-item lines="full">
+      <p>Additional 1 Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg12('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg12('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="AdditionalOne!= 'data:image/jpeg;base64,null' ">
+      <img [src]="AdditionalOne" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Additional">
+    <ion-item lines="full">
+      <p>Additional 2 Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg13('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg13('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="AdditionalTwo!= 'data:image/jpeg;base64,null' ">
+      <img [src]="AdditionalTwo" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Additional">
+    <ion-item lines="full">
+      <p>Additional 3 Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg14('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg14('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="AdditionalThree!= 'data:image/jpeg;base64,null' ">
+      <img [src]="AdditionalThree" />
+    </ion-card>
+  </div>
+
+  <div [hidden]="Additional">
+    <ion-item lines="full">
+      <p>Additional 4 Image</p>
+      <ion-icon slot="end" name="image" (click)="uploadImg15('gal')"></ion-icon>
+      <ion-icon slot="end" name="camera" (click)="uploadImg15('cam')"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="AdditionalFour!= 'data:image/jpeg;base64,null' ">
+      <img [src]="AdditionalFour" />
+    </ion-card>
+  </div>
+
+ 
+  
+</ion-content>
+
+<ion-footer>
+    <ion-button color="secondary" expand="full" (click)="SiteSurveyImage()">Save & Next</ion-button>
+</ion-footer>

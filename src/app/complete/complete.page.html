@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar  color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Job Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f='ngForm'  >
+    <ion-radio-group  
+    allow-empty-selection='false' 
+    (ionChange)='radiogroupChange($event)'>
+      <ion-card>
+      <ion-list-header>
+        <h2>Job Outcome</h2>
+      </ion-list-header>
+      </ion-card>
+      <ion-item lines="full">
+        <ion-label>Job Completed Successfully</ion-label>
+        <ion-radio slot="end" color="primary" value="JobCompletedSuccessfully"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>At Risk</ion-label>
+        <ion-radio slot="end" color="primary" value="AtRisk"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>Capped Off(Not Safe)</ion-label>
+        <ion-radio slot="end" color="primary" value="CappedOff"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-card>
+    <ion-item lines="full">
+      <ion-label position="floating">Parts</ion-label>
+      <ion-input type="text" 
+      ngModel 
+      name='parts'
+      required
+      #partsCtrl='ngModel'></ion-input>
+    </ion-item>
+    <p *ngIf='!partsCtrl.valid && partsCtrl.touched'>    * parts cannot be empty</p>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Labour</ion-label>
+      <ion-input type="text"  
+      ngModel 
+      name='labour'
+      required
+      #labourCtrl='ngModel' ></ion-input>
+    </ion-item>
+    </ion-card>
+    <p *ngIf='!labourCtrl.valid && labourCtrl.touched'>    * labour cannot be empty</p>
+
+    <ion-card>
+      <ion-item>
+        <ion-textarea rows="6" cols="20" 
+         placeholder="Enter Additional Notes here..."
+         ngModel 
+         name='additional'
+         required
+         #additionalCtrl='ngModel'
+         ></ion-textarea>
+      </ion-item>
+      </ion-card>
+      <p *ngIf='!additionalCtrl.valid && additionalCtrl.touched'>    * additional cannot be empty</p>
+
+    <ion-item lines="full">
+      <p><b>Upload Image</b></p>
+      <ion-icon slot="end" name="camera" (click)="openCamera()"></ion-icon>
+    </ion-item>
+    <ion-card *ngIf="updatePicture!= null">
+      <img [src]="updatePicture" />
+    </ion-card>
+    </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="secondary  [disabled]='!f.valid' (click)="complete(f)">Submit</ion-button>
+</ion-footer>
+

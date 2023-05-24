@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title > Add Appliances</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen=true>
+ 
+
+  <form  [formGroup]="formGroup"  >
+
+    <dynamic-ionic-form    [group]="formGroup"           
+                           [model]="formModel"                         
+                           (change)="onChange($event)">
+    </dynamic-ionic-form>
+
+</form>
+
+<p [hidden]="decimalver" > value should be of format 0.0001</p>
+    <p [hidden]="hunver" > value should be of format 100 </p>
+
+<ion-button color="secondary" expand="block" [hidden]=false (click)="InsertApplianceNew()"> save </ion-button>
+
+
+</ion-content>

@@ -1,0 +1,50 @@
+ion-tab-button {
+    background-color: transparent;
+    ion-icon{
+        color: #d8dadb;
+      
+    }
+    ion-label{
+        color:#d8dadb;
+    }
+
+}
+
+ion-tab-bar {
+    background-color: hsl(205, 85%, 15%);
+}
+
+    
+
+
+.tab-selected ion-icon{
+    color: #00aeed;
+
+}
+.tab-selected ion-label{
+    color: #00aeed;
+
+}
+
+
+#tab-button-tab1:after,
+#tab-button-tab2:after,
+#tab-button-tab3:after{
+    background: none repeat scroll 0 0 transparent;
+    content: '';
+    display: block;
+    height: 5px;
+    position: absolute;
+    transition: width 0.4s ease 0s, background-color 0.4s ease;
+    width: 0;
+    bottom: 0;
+   
+}
+
+#tab-button-tab1.tab-selected::after,
+#tab-button-tab2.tab-selected::after,
+#tab-button-tab3.tab-selected::after{
+    width: 33%;
+    background: #00aeed;
+    
+}

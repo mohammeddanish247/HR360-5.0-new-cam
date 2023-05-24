@@ -1,0 +1,37 @@
+
+
+
+
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+        <ion-title style="font-size: 16px;">Sync Log</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-item>
+        <ion-grid>
+            <ion-row>
+                <ion-col> JOBGUID </ion-col>
+                <ion-col> Action Name </ion-col>
+                <ion-col> Success/Error Message </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
+    <ion-item *ngFor='let list of model;'>
+        <ion-grid>
+            <ion-row>
+                <ion-col>  {{list.JOBGUID}}  </ion-col>
+                <ion-col>  {{list.ActionName}}   </ion-col>
+                <ion-col>  {{list.Msg}}  </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-button color="secondary" expand="full" (click)=" Clear()">Clear</ion-button>
+  </ion-footer>

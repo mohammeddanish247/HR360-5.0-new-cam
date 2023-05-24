@@ -1,0 +1,16 @@
+{
+  "appId": "uk.co.homeresponse3600",
+  "appName": "HR360-Beta",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+
+
+  
+}

@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Job Report Complete Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f='ngForm'>
+    <ion-card id="joboutcome" class="ion-padding">
+      <ion-radio-group  
+      allow-empty-selection='false' 
+      (ionChange)='radiogroupChange($event)'>      
+          <div class="ion-text-center">
+            <h5>Job Outcome</h5> 
+          </div>    
+        <ion-item lines="none">
+          <ion-label>Job Completed Successfully</ion-label>
+          <ion-radio slot="end" color="primary" value="job completed succesfully"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label>At Risk</ion-label>
+          <ion-radio slot="end" color="primary" value="At Risk"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label>Capped Off (Not Safe)</ion-label>
+          <ion-radio slot="end" color="primary" value="Capped Off (Not Safe)"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>CP12 Failed</ion-label>
+          <ion-radio slot="end" color="primary" value="CP12 Failed"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-item></ion-item>
+      <p *ngIf='jobOutComeFlag' class="alert">Job outcomes cannot be empty</p>
+    </ion-card>
+
+    <ion-card id="parts" class="ion-padding">
+      <ion-item lines="full">
+        <ion-label position="floating">Parts</ion-label>
+        <ion-input type="text" 
+        [(ngModel)]="parts"
+        (ionChange)="partsIonChange($event)"
+        name='parts'
+        required
+        #partsCtrl='ngModel'>
+      </ion-input>
+      </ion-item>
+      <p *ngIf='(!partsCtrl.valid && partsCtrl.touched) || partsFlag' class="alert"> Parts cannot be empty</p>
+    </ion-card>
+
+
+    <ion-card id="additional" class="ion-padding">
+      <ion-item>
+        <ion-textarea rows="6" cols="20" 
+         placeholder="Enter Additional Notes here..."
+         [(ngModel)]="additional" 
+         (ionChange)="additionalIonChange($event)"
+         name='additional'
+         required
+         #additionalCtrl='ngModel'
+         ></ion-textarea>
+      </ion-item>
+      <p *ngIf='(!additionalCtrl.valid && additionalCtrl.touched) || additionalFlag' class="alert"> Additional notes cannot be empty</p>
+    </ion-card>
+      
+    <ion-card id="uploadImage" class="ion-padding">
+      <ion-item>
+        <ion-label> Upload Image 1</ion-label>     
+        <ion-icon slot="end" name="camera" (click)="openCamera(1,'cam')"></ion-icon>
+        <ion-icon slot="end" name="image" (click)="openCamera(1,'gall')"></ion-icon>
+      </ion-item>
+      <span *ngIf="image1!= null">
+        <img [src]="image1" />
+      </span>
+      <p *ngIf='imageflag' class="alert">Image cannot be empty</p>
+    </ion-card>
+
+    
+    <ion-card id="uploadImage2" class="ion-padding" [hidden]="image2flag">
+      <ion-item>
+        <ion-label> Upload Image 2</ion-label>     
+        <ion-icon slot="end" name="camera" (click)="openCamera(2,'cam')"></ion-icon>
+        <ion-icon slot="end" name="image" (click)="openCamera(2,'gall')"></ion-icon>
+      </ion-item>
+      <span *ngIf="image2!= null">
+        <img [src]="image2" />
+      </span>      
+      <p *ngIf='image2flag' class="alert">Image cannot be empty</p>
+    </ion-card>
+
+    <ion-card id="uploadImage3" class="ion-padding" [hidden]="image3flag">
+      <ion-item>
+        <ion-label> Upload Image 3</ion-label>     
+        <ion-icon slot="end" name="camera" (click)="openCamera(3,'cam')"></ion-icon>
+        <ion-icon slot="end" name="image" (click)="openCamera(3 ,'gall')"></ion-icon>
+      </ion-item>
+      <span *ngIf="image3!= null">
+        <img [src]="image3" />
+      </span>
+      <p *ngIf='image3flag' class="alert">Image cannot be empty</p>
+    </ion-card>
+
+    </form>
+</ion-content>
+
+<!-- <ion-button (click)="checking()">Check</ion-button> -->
+<!-- [disabled]='!f.valid' -->
+<ion-footer>
+  <ion-button expand="full" color="secondary"  (click)="complete(f)">Submit</ion-button>
+</ion-footer>
+

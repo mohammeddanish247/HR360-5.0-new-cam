@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Signature Certificate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <!--  style="touch-action:none;border: 1px solid #ddd;" -->
+  <ion-card>
+    <h5 class="ion-text-center">Signature</h5>
+    <div id="canvasID">
+      <canvas id="Engsigcanvas" width="350" height="182"></canvas>
+    </div>
+    <ion-button color="medium" expand="full" (click)="clear()"> Clear</ion-button>
+  </ion-card>
+  
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="medium" expand="full"  (click)="save()"> Save</ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="medium" expand="full" (click)="clear()"> Clear</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-card>
+    <ion-radio-group allow-empty-selection='false' [(ngModel)]="receiving">
+     <ion-item lines="none">
+       <h6>Who will receive the Certificate? </h6>
+     </ion-item>
+      <ion-item lines="full">
+        <ion-label>Tenant</ion-label>
+        <ion-radio slot="end" color="primary" value="Tenant"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>Landlord</ion-label>
+        <ion-radio slot="end" color="primary" value="Landlord"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Homeowner</ion-label>
+        <ion-radio slot="end" color="primary" value="Homeowner"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Agent</ion-label>
+        <ion-radio slot="end" color="primary" value="Agent"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Date appliance(s) flue(s) checked</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY" picker-format="DD MM YYYY" [min]="currentyear" [max]="lastyear" [(ngModel)]="fluecheckedDate" placeholder="Tap here to enter answer"></ion-datetime>
+    </ion-item>
+  </ion-card>
+
+
+  <div class="ion-padding" style="margin-top: 5%;">
+    <ion-button expand="block" [disabled]="savecerti" color="secondary" (click)="signatureformSAVEClick()">Save Certficate</ion-button>
+    <!-- <ion-button expand="block" [hidden]="DownloadCertificate" color="secondary" (click)="sendCertificate()">Send Certificate</ion-button> -->
+    <ion-button expand="block" [hidden]="Generate" color="secondary" (click)="signatureformGenerateClick()">Generate Certificate</ion-button>
+    <ion-button expand="block" [disabled]="openCerti" color="secondary" (click)="openCertificate()">Download Certificate</ion-button>
+    <ion-button expand="block" [hidden]="Complete" color="secondary" (click)="CompleteClick()">Complete</ion-button>
+  </div>
+ 
+</ion-content>
+<!-- 
+<ion-footer>
+  <ion-button expand="block" [disabled]="savecerti" color="secondary" (click)="signatureformSAVEClick()">Save Certficate</ion-button>
+</ion-footer> -->

@@ -1,0 +1,325 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Appliances</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+  <div class="ion-text-center">
+    <h3 style="color:red">Edit Only Required Fields</h3>
+  </div>
+  <ion-item>
+    <ion-label>Appliance Type</ion-label>
+    <ion-select interface="popover" [(ngModel)]="ApplianceTypeSelect" (ionChange)="ApplianceTypeClick()">
+      <ion-select-option [value]="item.value" *ngFor="let item of Appliance">{{item.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- <ion-item (click)="openModal()">
+    <ion-label>Make</ion-label>
+    <ion-select interface="popover" [(ngModel)]="MakeSelect" (ionChange)="MakeChange()">
+      <ion-select-option value={{MakeSelect}} selected  disabled > {{MakeSelect}} </ion-select-option>
+       <ion-select-option *ngFor="let make of makeList">{{make}}</ion-select-option> -->
+      <!-- <ion-select-option value="other">Other</ion-select-option>   -->
+   <!-- </ion-select>
+  </ion-item> -->
+
+
+  <ion-item [hidden]="MakeFlag" (click)="openModal()">
+    <ion-label>Make</ion-label>
+    <ion-input class="ion-text-right" slot="end" value={{MakeSelect}} (ionChange)="MakeChange()"> </ion-input>
+    <!-- <ion-select interface="popover" [(ngModel)]="MakeSelect" (ionChange)="MakeChange()">
+      <ion-select-option value={{MakeSelect}} selected  disabled > {{MakeSelect}} </ion-select-option> -->
+      <!-- <ion-select-option *ngFor="let make of makeList">{{make}}</ion-select-option> -->
+      <!-- <ion-select-option value="other">Other</ion-select-option>   -->
+    <!-- </ion-select> -->
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="MakeAnswerSelect" placeholder="Enter the Manufacturer Name"
+      (keyup.enter)="AnswerMakeDone()"></ion-input>
+  </ion-item>
+
+  <ion-item [hidden]="ModelFlag" (click)="openModalModal()">
+    <ion-label>Model</ion-label>
+    <ion-input class="ion-text-right" slot="end" value={{ModelSelect}} (ionChange)="ModelChange()" > </ion-input>
+    <!-- <ion-select interface="popover" [(ngModel)]="MakeSelect" (ionChange)="MakeChange()">
+      <ion-select-option value={{MakeSelect}} selected  disabled > {{MakeSelect}} </ion-select-option> -->
+      <!-- <ion-select-option *ngFor="let make of makeList">{{make}}</ion-select-option> -->
+      <!-- <ion-select-option value="other">Other</ion-select-option>   -->
+    <!-- </ion-select> -->
+  </ion-item>
+
+  <!-- <ion-item>
+    <ion-label>Model</ion-label>
+    <ion-select interface="popover" [(ngModel)]="ModelSelect" (ionChange)="ModelChange()">
+      <ion-select-option value={{ModelSelect}} selected  disabled > {{ModelSelect}} </ion-select-option>
+      <ion-select-option *ngFor="let user of modelList">{{user}}</ion-select-option>
+      <ion-select-option value="other">Other</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="ModelAnswerSelect" placeholder="Enter the Model Name"
+      (keyup.enter)="AnswerModelDone()"></ion-input>
+  </ion-item>
+
+
+
+  <ion-item>
+    <ion-label>Boiler Type</ion-label>
+    <ion-select interface="popover" [(ngModel)]="BoilerTypeSelect" (ionChange)="BoilerTypeClick()">
+      <ion-select-option value="HeatOnly">Heat Only</ion-select-option>
+      <ion-select-option value="System">System</ion-select-option>
+      <ion-select-option value="Combi">Combi</ion-select-option>
+      <ion-select-option value="BackBoiler">Back Boiler</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Location</ion-label>
+    <ion-select [(ngModel)]="LocationSelect" (ionChange)="LocationClick()">
+      <ion-select-option value="AiringCupboard/Compartment">Airing Cupboard/Compartment</ion-select-option>
+      <ion-select-option value="Bathroom">Bathroom</ion-select-option>
+      <ion-select-option value="Bedroom">Bedroom</ion-select-option>
+      <ion-select-option value="Conservatory">Conservatory</ion-select-option>
+      <ion-select-option value="DiningRoom">Dining Room</ion-select-option>
+      <ion-select-option value="Garage">Garage</ion-select-option>
+      <ion-select-option value="Hall">Hall</ion-select-option>
+      <ion-select-option value="Kitchen">Kitchen</ion-select-option>
+      <ion-select-option value="Landing">Landing</ion-select-option>
+      <ion-select-option value="LivingRoom">Living Room</ion-select-option>
+      <ion-select-option value="Loft">Loft</ion-select-option>
+      <ion-select-option value="Lounge">Lounge</ion-select-option>
+      <ion-select-option value="Utility">Utility</ion-select-option>
+      <ion-select-option value="WC">WC</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Flue</ion-label>
+    <ion-select interface="popover" [(ngModel)]="FlueSelect" (ionChange)="FlueClick()">
+
+      <div *ngFor='let flue of Fluelist'>
+        <ion-select-option value={{flue}}>{{flue}}</ion-select-option>
+      </div>
+      
+      
+    </ion-select>
+  </ion-item>
+
+  <!-- <ion-item [hidden]="Flueless">
+    <ion-label>Flue</ion-label>
+    <ion-select interface="popover" [(ngModel)]="FlueLessSelect" (ionChange)="FlueLessClick()">
+      <ion-select-option value="OpenFlued">Open Flued</ion-select-option>
+      <ion-select-option value="RoomSealed">Room Sealed</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+
+  <ion-item>
+    <ion-label>Owned by</ion-label>
+    <ion-select interface="popover" [(ngModel)]="OwnedSelect" (ionChange)="OwnedClick()">
+      <ion-select-option *ngFor="let list of OwnedSelectList">{{list}}</ion-select-option>
+      <!-- <ion-select-option value="Landlord">Landlord</ion-select-option>
+      <ion-select-option value="Tenant">Tenant</ion-select-option>
+      <ion-select-option value="Homeowner">Homeowner</ion-select-option> -->
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Inspected</ion-label>
+
+    <!-- <select name="Inspected" id="Inspected" [(ngModel)]="InspectedSelect">
+      <option value="WorkedOn">Worked On</option>
+      <option value="Visual">Visual</option>
+    </select> -->
+
+    <ion-select interface="popover" [(ngModel)]="InspectedSelect" (ionChange)="InspectedClick()">
+      <ion-select-option value={{InspectedSelect}} selected  disabled > {{InspectedSelect}} </ion-select-option>
+      <ion-select-option value="WorkedOn">Worked On</ion-select-option>
+      <ion-select-option value="Visual">Visual</ion-select-option>
+    </ion-select>
+
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Zero Govenor</ion-label>
+    <ion-select interface="popover" [(ngModel)]="GovenorSelect" (ionChange)="GovenorClick()">
+      <ion-select-option value={{GovenorSelect}} selected  disabled > {{GovenorSelect}} </ion-select-option>
+      <div *ngFor='let govrn of governlist'> 
+      <ion-select-option value={{govrn}}>{{govrn}}</ion-select-option>
+      </div>     
+    </ion-select>
+  </ion-item>
+
+
+
+  <ion-item>
+    <!-- <ion-label>Operating pressure units</ion-label>Operating pressure/ Gas Rate -->
+    <ion-label>Operating pressure/ Gas Rate</ion-label>
+    <ion-select interface="popover" [(ngModel)]="OperatingSelect" (ionChange)="OperatingClick()">
+      <div *ngFor='let operating of operatinglist'>     
+         <ion-select-option value={{operating}}>{{operating}}</ion-select-option>
+      </div>
+
+    </ion-select>
+  </ion-item>
+
+ 
+
+  <ion-item>
+    <ion-label>Gas Rate/Burner pressure</ion-label>
+    <ion-input placeholder="tap here to enter answer" type="number" [(ngModel)]="GasRateSelect"
+      (ionChange)="gasRateClick()"></ion-input>
+  </ion-item>
+
+  
+
+  <ion-item>
+    <ion-label>Operation of safety device(s)</ion-label>
+
+    <ion-select interface="popover" [(ngModel)]="SafetyDeviceSelect" (ionChange)="safetydeviceClick()">
+      <ion-select-option value={{SafetyDeviceSelect}} selected  disabled > {{SafetyDeviceSelect}} </ion-select-option>
+      <ion-select-option value="Pass">Pass</ion-select-option>
+      <ion-select-option value="Fail">Fail</ion-select-option>
+      <ion-select-option value="NA">N/A</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Ventilation satisfactory</ion-label>
+    <ion-select interface="popover" [(ngModel)]="VentilationSatisfactorySelect"
+      (ionChange)="VentilationSatisfactoryClick()">
+      <ion-select-option value="YES">Yes</ion-select-option>
+      <ion-select-option value="NO">No</ion-select-option>
+      <ion-select-option value="NA">N/A</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Visual condition of flue and termination</ion-label>
+    <ion-select interface="popover" [(ngModel)]="VisualConditionSelect" (ionChange)="VisualConditionClick()">
+      <ion-select-option value="Pass">Pass</ion-select-option>
+      <ion-select-option value="Fail">Fail</ion-select-option>
+      <ion-select-option value="NA">N/A</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Flue flow continuity + Spillage</ion-label>
+    <ion-select interface="popover" [(ngModel)]="ContinuitySpillageSelect" (ionChange)="continuitySpillageClick()">
+      <ion-select-option value={{continuitySpillageSelect}} selected  disabled > {{continuitySpillageSelect}} </ion-select-option>
+     <div *ngFor='let continuityspillage of continuitySpillagelist'>
+      <ion-select-option value={{continuityspillage}}>{{continuityspillage}}</ion-select-option>
+     </div>              
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Combustion analyser reading</ion-label>
+    <ion-select interface="popover" [(ngModel)]="AnalyserReading1Select" (ionChange)="analyserReadingClick()">
+      <ion-select-option value={{AnalyserReading1Select}} selected  disabled > {{AnalyserReading1Select}} </ion-select-option>
+      <div *ngFor='let  analyser of analyserlist'> 
+        <ion-select-option value={{analyser}}>{{analyser}}</ion-select-option>    
+      </div>   
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">High / Inital Ratio</ion-label>
+    <ion-input placeholder="answer should be 0.000 to 0.999" type="number" [(ngModel)]="HighInitalRatioSelect"
+      (keyup.enter)="HighInitalRatioClick()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">High/ Inital CO2 %</ion-label>
+    <ion-input placeholder="Tap here to enter answer" type="number" [(ngModel)]="HighInitalCO2Select"
+      (keyup.enter)="HighInitalCO2Click()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">High/ Inital CO ppm</ion-label>
+    <ion-input placeholder="Tap here to enter answer" type="number" [(ngModel)]="HighInitalCOppmSelect"
+      (keyup.enter)="HighInitalCOppmClick()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Low/ Final Ratio</ion-label>
+    <ion-input placeholder="answer should be 0.000 to 0.999" type="number" [(ngModel)]="LowFinalRatioSelect"
+      (keyup.enter)="LowFinalRatioClick()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Low/ Final CO2 %</ion-label>
+    <ion-input placeholder="Tap here to enter answer" type="number" [(ngModel)]="LowFinalCO2Select"
+      (keyup.enter)="LowFinalCO2Click()"></ion-input>
+  </ion-item>
+  
+
+  <ion-item>
+    <ion-label position="floating">Low/ Final CO ppm</ion-label>
+    <ion-input placeholder="Tap here to enter answer" type="number" [(ngModel)]="LowFinalCOppmSelect"
+      (keyup.enter)="LowFinalCOppmClick()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Safe To Use</ion-label>
+    <ion-select interface="popover" [(ngModel)]="SafeToUseSelect" (ionChange)="SafeToUseClick()">
+      <ion-select-option value="Yes">Yes</ion-select-option>
+      <ion-select-option value="No">No</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Defect(s) identified</ion-label>
+    <ion-input type="text" [(ngModel)]="DefectIdentifiedSelect" placeholder="Write here the answer"
+      (ionChange)="DefectIdentifiedAns()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>GIUSP  </ion-label>
+    <ion-select interface="popover" [(ngModel)]="GIUSPSelect" (ionChange)="GIUSPClick()">
+      <div *ngFor='let giusp of giusplist'>
+        <ion-select-option value={{giusp}}> {{giusp}}</ion-select-option>
+      </div>
+      
+    </ion-select>
+  </ion-item>
+
+ 
+
+  
+
+  <ion-item [hidden]="WarningNoticeFlag">
+    <ion-label position="floating">Warning Notice Reference No</ion-label>
+    <ion-input type="text" [(ngModel)]="WarningNoticeSelect" placeholder="Write here the answer"
+      (ionChange)="WarningNoticeAns()"></ion-input>
+  </ion-item>
+
+  <ion-item [hidden]="RemedialActionFlag">
+    <ion-label>Remedial Action Taken</ion-label>
+    <ion-select interface="popover" [(ngModel)]="RemedialActionSelect" (ionChange)="RemedialActionTakenClick()">
+     <div *ngFor='let advise of advicelist'>
+      <ion-select-option value={{advise}}>{{advise}}</ion-select-option>
+     </div> 
+      
+    </ion-select>
+  </ion-item>
+
+  <div style="margin-top: 5%;">
+    <ion-button [hidden]="editmode" color="secondary" expand="block" (click)="EditApplianceNew()">UPDATE</ion-button>
+  </div>
+  <!-- <div style="margin-top: 5%;">
+    <ion-button color="danger" [hidden]="editmode" expand="block" (click)="deleteAppliance()">Delete</ion-button>
+  </div> -->
+  
+</ion-content>
+
+<ion-footer>
+  <ion-button [hidden]="true" color="secondary" expand="block" (click)="getData()">GET</ion-button>
+</ion-footer>

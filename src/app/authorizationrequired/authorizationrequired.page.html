@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Job Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #f='ngForm'  >
+    <ion-card>
+    <ion-radio-group allow-empty-selection='false' (ionChange)='radiogroupChange($event)'>
+      
+        <div class="ion-text-center ion-padding">
+          <b>Job Outcome</b>
+        </div>
+      
+      <ion-item lines="full">
+        <ion-label>Banding</ion-label>
+        <ion-radio slot="end" color="primary" value="Banding"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Part Not Available</ion-label>
+        <ion-radio slot="end" color="primary" value="PartNotAvailable"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Ber</ion-label>
+        <ion-radio slot="end" color="primary" value="Ber"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Review Case</ion-label>
+        <ion-radio slot="end" color="primary" value="ReviewCase"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Insufficent Time To Complete</ion-label>
+        <ion-radio slot="end" color="primary" value="InsufficentTimeToComplete"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Not Covered</ion-label>
+        <ion-radio slot="end" color="primary" value="NotCovered"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Out Of Skill Set</ion-label>
+        <ion-radio slot="end" color="primary" value="OutOfSkillSet"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-card>
+
+    <ion-card>
+      <ion-item lines="full">
+        <ion-label position="floating">Parts</ion-label>
+        <ion-input type="text"  
+        [(ngModel)]="parts" 
+        name='parts'
+        required
+        #partsCtrl='ngModel'></ion-input>
+      </ion-item>
+      <p *ngIf='!partsCtrl.valid && partsCtrl.touched'>    * Parts cannot be empty</p>
+
+
+      <ion-item lines="full">
+        <ion-label position="floating">Labour</ion-label>
+        <ion-input type="text"  
+        [(ngModel)]="labour" 
+        name='labour'
+        required
+        #labourCtrl='ngModel'></ion-input>
+      </ion-item>
+
+      <p *ngIf='!labourCtrl.valid && labourCtrl.touched'>    * Labours field cannot be empty</p>
+
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-textarea rows="12" cols="20" 
+        placeholder="Enter Additional Notes here..."
+        [(ngModel)]="additional" 
+        name='additionalNotes'
+        required
+        #additionalNotesCtrl='ngModel'
+        ></ion-textarea>
+      </ion-item>
+      <p *ngIf='!additionalNotesCtrl.valid && additionalNotesCtrl.touched'>    * Additional cannot be empty</p>
+
+      </ion-card>
+      <ion-card>
+        <ion-item lines="full">
+          <b>Upload Image</b>
+          <ion-icon slot="end" name="camera"  (click)="openCamera('cam')"></ion-icon>
+          <ion-icon slot="end" name="image"  (click)="openCamera('gall')"></ion-icon>
+        </ion-item>
+        <span *ngIf="updatePicture!= null">
+          <img [src]="updatePicture" />
+        </span>
+      </ion-card>
+    
+    </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="secondary" [disabled]='!f.valid' (click)="authoizationSubmit(f)">Submit</ion-button>
+</ion-footer>

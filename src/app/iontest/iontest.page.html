@@ -1,0 +1,20 @@
+<ion-content padding>
+   
+
+  <p>sabr</p>
+
+  <form class="form-vertical" [formGroup]="formGroup" >
+
+      <dynamic-material-form [group]="formGroup"
+                             [layout]="formLayout"
+                             [model]="formModel"     
+                             (change)="onChange($event)"
+                              >
+      </dynamic-material-form>
+
+  </form>
+
+ 
+  <ion-button  [hidden]="SaveFlag"> save </ion-button>
+
+</ion-content>

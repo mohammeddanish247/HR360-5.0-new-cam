@@ -1,0 +1,18 @@
+#Engsigcanvas {
+    border: 3px solid rgb(20, 19, 19);
+    display: inline-block;
+    background-color: rgb(255, 255, 247);
+}
+
+#canvasID{
+    width: 100%;
+    text-align:center;
+    margin-top: 10px;
+}
+
+ion-button {
+    font-size: 18px;
+    height: 55px;  // 45
+    text-transform: capitalize;
+    --border-radius: 10px;
+}

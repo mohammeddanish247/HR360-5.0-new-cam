@@ -1,0 +1,371 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.loading-wrapper{
+  flex-wrap: wrap;
+}
+
+.loading-content{
+  display: block;
+  height: 35px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin: auto !important;
+}
+.loading-spinner{
+  margin-bottom: 10px;
+}
+.progressbar{
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+}
+.ion-invalid.ion-touched ion-input{
+    color: var(--ion-color-danger)
+}
+
+.custom-class  {
+  --spinner-color: #00aeed;
+
+  button.alert-button{
+    color: #00aeed;
+  }
+
+  ion-backdrop {
+    --backdrop-opacity: 0.66;
+  }
+}
+
+.my-custom-class {
+    --spinner-color: #00aeed;
+    --height : 30% !important;
+    --width: 90% !important;
+
+    button.alert-button{
+      color: #00aeed;
+    }
+
+    ion-backdrop {
+      --backdrop-opacity: 0.66;
+    }
+  }
+  
+  // ion-content {
+  //   // --background: url("../../assets/images/banner.jpg") repeat 100% 100%;
+  //   --background: hsl(205, 85%, 15%) linear-gradient(100deg, hsl(205, 85%, 15%), hsl(195, 77%, 40%)) !important ;
+  // }
+  
+
+
+  :root {
+    //hsl(205, 85%, 40%) linear-gradient(90deg, hsl(205, 85%, 21%), #188eb6);
+    --ion-color-secondary: #062d46 linear-gradient(90deg, #062c47, #188eb6);
+    --ion-color-secondary-rgb: 6,45,70;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255,255,255;
+    --ion-color-secondary-shade: #05283e;
+    --ion-color-secondary-tint: #1f4259;
+
+    .debug-theme{
+      //hsl(205, 85%, 40%) linear-gradient(90deg, hsl(205, 85%, 21%), #188eb6);
+      //--ion-color-secondary: #000000 linear-gradient(90deg, #b90669, #F9A470);
+      --ion-color-secondary: linear-gradient(90deg, #434343 0%, #000000 100%);
+      --ion-color-secondary-rgb: 67,67,67 ;
+      --ion-color-secondary-contrast: #ffffff;
+      --ion-color-secondary-contrast-rgb: 255,255,255;
+      --ion-color-secondary-shade: #000000;
+      --ion-color-secondary-tint: #434343;
+
+      h2{
+        color: #434343;
+      }
+
+      .ion-color-favorite {
+        --ion-color-base:#434343;
+        --ion-color-base-rgb:  6, 44, 70;
+        --ion-color-contrast:#fff;
+        --ion-color-contrast-rgb: 255,255,255;
+        --ion-color-shade: #434343;
+        --ion-color-tint:#1a1a1a;
+      }
+      
+      .form-field {
+
+        input {
+          color: #434343;
+        }
+        
+        input:focus {
+          border-color:  #434343;
+        }
+      
+        .input-focused{
+          border-color:  #434343;
+        }
+        
+        .label-focused {
+          color: #434343;
+        }
+          
+        }
+
+      ion-tab-bar {
+          background-color: #000000;
+      }
+
+      .tab-selected ion-icon{
+          color: #434343;
+      
+      }
+      .tab-selected ion-label{
+          color: #434343;
+      
+      }
+
+      #tab-button-tab1.tab-selected::after,
+      #tab-button-tab2.tab-selected::after,
+      #tab-button-tab3.tab-selected::after{
+          background: #434343;
+          
+      }
+
+      .bgcolour{
+        --background : #000000;
+    }
+
+    .loginbg{
+      --background: linear-gradient(90deg, #434343 0%, #000000 100%) !important;
+    }
+
+    .ion-color-favorite {
+      --ion-color-base:#434343;
+      --ion-color-base-rgb:  188,85,111;
+      --ion-color-contrast:#fff;
+      --ion-color-contrast-rgb: 255,255,255;
+      --ion-color-shade:   #434343;
+      --ion-color-tint:  #434343;
+    }
+
+    ion-content {
+      .slide {
+          background-color: #000000;
+      }
+    }
+
+    .custom-class  {
+      --spinner-color: #434343;
+      button.alert-button{
+        color: #434343;
+      }
+    }
+    
+    .my-custom-class {
+        --spinner-color: #434343;
+        button.alert-button{
+          color: #434343;
+        }
+      }
+       
+      .picture {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
+    }
+
+  }
+
+  .loginbg{
+    --background: hsl(205, 85%, 15%) linear-gradient(100deg, hsl(205, 85%, 15%), hsl(195, 77%, 40%)) !important ;
+  }
+  
+  .ion-color-favorite {
+    --ion-color-base:#062d46;
+    --ion-color-base-rgb:  6, 44, 70;
+    --ion-color-contrast:#fff;
+    --ion-color-contrast-rgb: 255,255,255;
+    --ion-color-shade: #0f75bc;
+    --ion-color-tint:#02a0de;
+  }
+
+  ion-footer {
+    ion-button{
+      text-transform: capitalize;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 55px;
+      // font-size: large;
+   }   
+  }
+
+  ion-button{
+    height: 4em;
+    // text-transform: capitalize;
+    // font-size: large;
+  }
+
+  .form-field {
+    position: relative;
+    margin-bottom: 0.6rem;
+    height: 50px;
+   
+    label {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      padding: 0 0.25rem;
+      color: rgb(233, 233, 233);
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+  
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      font-size: 17px;
+      font-weight: 600;
+      border: 2px solid #e7ebee;
+      border-radius: 10px;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+      color: #0E588C;
+    }
+  
+    input:focus {
+      border-color:  #0E588C;
+    }
+
+    .input-focused{
+      border-color:  #0E588C;
+    }
+  
+    .label-focused {
+      top: -0.5rem;
+      left: 0.8rem;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: hsl(0, 0%, 100%);
+      z-index: 10;
+      color: #0E588C;
+    }
+    
+  }
+
+  ion-tab-button {
+    background-color: transparent;
+    ion-icon{
+        color: #d8dadb;
+      
+    }
+    ion-label{
+        color:#d8dadb;
+    }
+
+}
+
+ion-tab-bar {
+    background-color: hsl(205, 85%, 15%);
+}
+
+    
+
+
+.tab-selected ion-icon{
+    color: #00aeed;
+
+}
+.tab-selected ion-label{
+    color: #00aeed;
+
+}
+
+
+#tab-button-tab1:after,
+#tab-button-tab2:after,
+#tab-button-tab3:after{
+    background: none repeat scroll 0 0 transparent;
+    content: '';
+    display: block;
+    height: 5px;
+    position: absolute;
+    transition: width 0.4s ease 0s, background-color 0.4s ease;
+    width: 0;
+    bottom: 0;
+   
+}
+
+#tab-button-tab1.tab-selected::after,
+#tab-button-tab2.tab-selected::after,
+#tab-button-tab3.tab-selected::after{
+    width: 33%;
+    background: #00aeed;
+    
+}
+
+.bgcolour{
+  --background : hsl(205, 85%, 15%);
+}
+
+ion-content {
+  position: absolute;
+  top: 70px;
+
+  .slide {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 40%;
+      background-color: #062c47;
+
+      p {
+          text-align: center;
+          margin-top: 20%;
+      }
+  }
+
+
+  .details {
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      height: 70%;
+      background-color: white;
+      z-index: 1;
+      border-top-left-radius: 26px;
+      border-top-right-radius: 26px;
+      
+  }
+  
+
+}

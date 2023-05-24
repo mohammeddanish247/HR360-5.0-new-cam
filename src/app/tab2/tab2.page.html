@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="slide bg">
+    <p>
+      <img src="../../assets/images/logobig.png" />
+    </p>
+  </div>
+  <div class="details">
+
+    <ion-card *ngFor="let setting of settingArray" (click)="openOption(setting)">
+      <ion-item color="secondary" line='none'>
+        <h2>{{setting.name}}</h2>
+      </ion-item>
+    </ion-card>
+
+    <ion-card *ngIf="DebugButtonFlag">
+      <ion-item lines="none" color="secondary">
+        <h2>Debug Mode</h2>
+        <ion-toggle slot="end" color="light"  name="togglebutton" [(ngModel)]="toggleDevMode" (ionChange)="toggle($event)"></ion-toggle>
+      </ion-item>            
+    </ion-card>
+
+    <!-- Danish -->
+  <div class="ion-text-center">
+    <h6 style="color:rgb(98, 98, 98); bottom: 0px;">Beta Version 2.5</h6>
+    <!-- <h6 style="color:rgb(98, 98, 98); bottom: 0px;" [hidden]="devFlag">Developer Mode</h6> -->
+  </div>
+  </div>
+</ion-content>

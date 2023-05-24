@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">HR360-Beta</string>
+    <string name="title_activity_main">HR360-Beta</string>
+    <string name="package_name">uk.co.homeresponse3600</string>
+    <string name="custom_url_scheme">uk.co.homeresponse3600</string>
+</resources>

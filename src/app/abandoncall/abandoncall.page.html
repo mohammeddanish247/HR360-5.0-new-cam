@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Job Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f='ngForm'  >
+  <ion-card id="joboutcome" class="ion-padding">
+      <ion-radio-group allow-empty-selection='true' (ionChange)='radiogroupChange($event)'>
+        
+          <div class="ion-text-center">
+            <h5>Job Outcome</h5> 
+          </div>
+    
+        <ion-item lines="none">
+          <ion-label>Nobody At Home</ion-label>
+          <ion-radio value="Nobody at Home" ></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label>No Adult At Home</ion-label>
+          <ion-radio value="No Adult at Home"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label>No Access to boiler</ion-label>
+          <ion-radio value="No Access to boiler"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label>No Parking</ion-label>
+          <ion-radio value="No Parking"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="none">
+          <ion-label lines="none">Boiler Not Working,<br> Cannot Complete This Job.</ion-label>
+          <ion-radio value="Boiler Not Working Cannot Complete Service"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-item></ion-item>
+      <p *ngIf='jobOutComeFlag' class="alert">Job outcomes cannot be empty</p>
+  </ion-card>
+
+  <ion-card id="textarea" class="ion-padding">
+    <ion-item>
+      <ion-textarea rows="5" cols="20"  
+      placeholder="Enter Additional Notes here..."
+      ngModel 
+      name='additionalNotes'
+      required
+      #additionalNotesCtrl='ngModel'
+      (ionChange)='textarea($event)'
+      >
+      </ion-textarea>
+    </ion-item>
+    <p *ngIf='(!additionalNotesCtrl.valid && additionalNotesCtrl.touched) || additionalNotesFlage' class="alert">Additional notes cannot be empty</p>
+
+  </ion-card>
+
+  <ion-card id="uploadImage" class="ion-padding">
+    <ion-item lines="full">
+      <p><b>Upload Image</b></p>
+      <ion-icon slot="end" name="camera" (click)="openCamera('cam')"></ion-icon>
+      <ion-icon slot="end" name="image" (click)="openCamera('gall')"></ion-icon>
+    </ion-item>
+    <span *ngIf="updatePicture!= null">
+      <img [src]="updatePicture" />
+    </span>
+    <p *ngIf='imageFlage' class="alert">Image cannot be empty</p>
+  </ion-card>
+  
+
+</form>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="secondary" (click)='submitAbandon(f)' >Submit</ion-button>
+</ion-footer>
+

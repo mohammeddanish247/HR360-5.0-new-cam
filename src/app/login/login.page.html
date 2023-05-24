@@ -1,0 +1,71 @@
+<ion-content class="loginbg">
+    <table>
+      <tr>
+        <td>
+          <ion-card>
+            <div class="image">
+              <img class="picture" src="../../assets/images/logo.png" />
+            </div>
+            <div class="header">
+              <h2>
+                Welcome to <br />
+                HomeResponse360
+              </h2>
+            </div>
+  
+            <ion-card-content>
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="form-field">
+                  <label [ngClass]="focused ? 'label-focused' : ''"
+                    >Username</label
+                  >
+                  <input
+                    name="username"
+                    [ngClass]="focused ? 'input-focused' : ''"
+                    type="text"
+                    (focus)="focused = true"
+                    (blur)="onBlur($event)"
+                    [(ngModel)]="username"
+                  />
+                </div>
+                <!-- <span>&nbsp;</span> <span *ngIf ='error'> Username cannot be empty</span> -->
+  
+                <div class="form-field">
+                  <label [ngClass]="focused2 ? 'label-focused' : ''"
+                    >Password</label
+                  >
+                  <input
+                    name="password"
+                    [ngClass]="focused2 ? 'input-focused' : ''"
+                    type="password"
+                    (focus)="focused2 = true"
+                    (blur)="onBlur2($event)"
+                    [(ngModel)]="password"
+                  />
+                </div>
+                <div>
+                  <ion-item lines="none">
+                    <ion-checkbox name="cb" color="secondary" slot="start" [(ngModel)]="isChecked" (click)="checkCheckbox()"></ion-checkbox>
+                    <ion-label>Remember me</ion-label>
+                  </ion-item>
+                </div>
+  
+                <div>
+                  <ion-button type="submit" color="secondary" expand="block">
+                    Sign In
+                  </ion-button>
+                </div>
+  
+                <h5>
+                  Don't Have an Account?<br /><label (click)="gotoRegister()"
+                    ><b>Register</b></label
+                  >
+                </h5>
+              </form>
+            </ion-card-content>
+          </ion-card>
+        </td>
+      </tr>
+    </table>
+  </ion-content>
+  

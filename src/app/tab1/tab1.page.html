@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar class="bgcolour">
+    <ion-row>
+      <ion-col size="10" >
+          <div>
+            <img src="../../assets/images/name.png">
+          </div>
+      </ion-col>
+      <ion-col size="2">
+        <div>
+          <ion-icon class="syncbutton" size="large" name="sync" (click)="syncClick()"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+  
+  <div id="address" class="whitebg">
+    <marquee behavior="" direction="">
+      <span>{{address}}</span>
+    </marquee>    
+  </div>
+
+  <ion-segment class="whitebg" color="favorite" value="today"  [(ngModel)]="segment">  
+    <ion-segment-button value="today">
+      <ion-label>Today</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="past">
+      <ion-label>Past</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="future">
+      <ion-label>Future</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+
+
+</ion-header>
+
+
+<ion-content >
+   <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'today'">
+      <div *ngFor='let engineerJob of model; let i = index' (click)= 'gotoDetails(engineerJob.CLAIMGUID)'>
+        <div *ngIf="engineerJob.ListType == 'Today'" >
+          <ion-card [hidden]="engineerJob.ParentJobGuid != ''"> 
+            <ion-list>
+              <ion-item lines='none' style="--background:{{engineerJob.BackgroundColour}};" >
+                <ion-thumbnail slot="start">
+                  <ion-label>
+                    <p>{{engineerJob.BookingDate}}</p>
+                    <p>{{engineerJob.BookingTimeType}}</p>
+                  </ion-label>
+                </ion-thumbnail>
+                <ion-label>
+                  <h4>{{engineerJob.CLAIMJOBID}} {{engineerJob.RiskPostCode}}</h4>
+                  <h2>{{engineerJob.ProductName}}</h2>
+                  <p>{{engineerJob.ContactName}}</p>
+                  <p>{{engineerJob.RiskAddress}}</p>
+                </ion-label>
+                <ion-icon slot='end' name="chevron-forward"></ion-icon>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+    
+  
+    <div *ngSwitchCase="'past'">
+      <div *ngFor='let engineerJob of model; let i = index' (click)= 'gotoDetails(engineerJob.CLAIMGUID)'>
+        <div *ngIf="engineerJob.ListType == 'Past'" >
+          <ion-card [hidden]="engineerJob.ParentJobGuid != ''"> 
+            <ion-list>
+              <ion-item lines="none" [hidden]="engineerJob.ParentJobGuid!=''" style="--background:{{engineerJob.BackgroundColour}};" >
+                <ion-thumbnail slot="start">
+                  <ion-label>
+                    <p>{{engineerJob.BookingDate}}</p>
+                    <p>{{engineerJob.BookingTimeType}}</p>
+                  </ion-label>
+                </ion-thumbnail>
+                <ion-label>
+                  <h4>{{engineerJob.CLAIMJOBID}} {{engineerJob.RiskPostCode}}</h4>
+                  <h2>{{engineerJob.ProductName}}</h2>
+                  <p>{{engineerJob.ContactName}}</p>
+                  <p>{{engineerJob.RiskAddress}}</p>
+                </ion-label>
+                <ion-icon slot='end' name="chevron-forward"></ion-icon>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+    
+
+    <div *ngSwitchCase="'future'">
+      <div *ngFor='let engineerJob of model; let i = index' (click)= 'gotoDetails(engineerJob.CLAIMGUID)'>
+        <div *ngIf="engineerJob.ListType == 'Future'" >
+          <ion-card [hidden]="engineerJob.ParentJobGuid != ''"> 
+            <ion-list>
+              <ion-item lines='none' style="--background:{{engineerJob.BackgroundColour}};" >
+                <ion-thumbnail slot="start">
+                  <ion-label>
+                    <p>{{engineerJob.BookingDate}}</p>
+                    <p>{{engineerJob.BookingTimeType}}</p>
+                  </ion-label>
+                </ion-thumbnail>
+                <ion-label>
+                  <h4>{{engineerJob.CLAIMJOBID}} {{engineerJob.RiskPostCode}}</h4>
+                  <h2>{{engineerJob.ProductName}}</h2>
+                  <p>{{engineerJob.ContactName}}</p>
+                  <p>{{engineerJob.RiskAddress}}</p>
+                </ion-label>
+                <ion-icon slot='end' name="chevron-forward"></ion-icon>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

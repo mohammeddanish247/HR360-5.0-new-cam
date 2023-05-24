@@ -1,0 +1,172 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+ <ion-content>
+
+  <ion-card>
+    <ion-item style="--background: {{data.BackgroundColour}};">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <ion-label>
+              Pruduct Name : {{data.ProductName}} <br><br>
+              ClaimJobID : {{data.CLAIMJOBID}} <br><br>
+              JOBGUID : {{data.JOBGUID}} <br><br>
+              AppointmentDate : {{data.BookingDate}} <br><br>
+              Appointment Start Time : {{data.AppointmentStartTime}} <br><br>
+              Appointment End Time : {{data.AppointmentEndTime}} <br><br>
+              Client Name : {{data.CLIENTNAME}}                
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="10" style="display: flex; align-items: center;">
+            <ion-label class="ion-text-wrap ion-text-justify">RiskAddress : {{data.RiskAddress}} - {{data.RiskPostCode}}</ion-label>
+          </ion-col>
+          <ion-col size="2" style="display: flex; align-items: center;">
+            <div class="callandmap">
+              <div class="map">
+                <ion-icon name="location" (click)="mapopen()"></ion-icon>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="10" style="display: flex; align-items: center;">
+            <ion-label>Phone: {{data.phone}}</ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <div class="callandmap">
+              <div class="call">
+                <ion-icon name="call" (click)="call(1)"></ion-icon>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="10" style="display: flex; align-items: center;">
+            <ion-label>HomePhone : {{data.HomePhone}}</ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <div class="callandmap">
+              <div class="call">
+                <ion-icon name="call" (click)="call(2)"></ion-icon>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>        
+      </ion-grid>
+      
+    </ion-item>
+  </ion-card>
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="secondary" expand="full" (click)="btnTicketClick()">
+          <ion-icon size="large" name="eye"></ion-icon>&nbsp;
+          View Job Ticket
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="secondary" expand="full" (click)="takePhoto()">
+          <ion-icon name="camera"></ion-icon>&nbsp;
+          Take Picture
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col size="6">
+        <ion-button color="secondary" expand="full" (click)="btnVSClick()" [hidden]="hideVanStock">
+          <ion-icon name="car"></ion-icon>&nbsp;
+          Van Stock
+        </ion-button>
+      </ion-col>
+<!-- *ngIf="ProductName == 'BOILER SERVICE+GAS CERTIFICATE(GSI)' || ProductName == ''" -->
+      <!-- <ion-col size="6" *ngIf="data.ProductName == 'BOILER SERVICE+GAS CERTIFICATE(GSI)'"> -->
+        <ion-col size="6">
+        <ion-button color="secondary" expand="full" (click)="btnInventoryClick()" [disabled]="hideInventory">
+          <ion-icon name="document-text"></ion-icon>&nbsp;
+          Inventory
+        </ion-button>
+      </ion-col>
+      
+      <!--         *ngIf="data.ProductName == 'SITE SURVEY' || data.ProductName == 'BOILER SERVICE'
+      || data.ProductName == 'BOILER BREAKDOWN' || data.ProductName == 'BOILER INSTALLATION'" -->
+
+      <ion-col size="12">
+        <ion-button color="secondary" expand="full" (click)="btnSiteSurveyClick()" [hidden]="hideSiteSurvey">
+          <ion-icon name="people"></ion-icon>&nbsp;
+          Site Survey
+        </ion-button>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size='12'>
+        <ion-button color="secondary" [hidden]="hideRouteFlag" expand="full" (click)="btnOnRouteClick()">On
+          Route</ion-button>
+        <ion-button color="secondary" [hidden]="hideArrivedFlag" expand="full"
+          (click)="btnArrivedAtJobClick()">Arrived at Job</ion-button>
+
+        <ion-button color="secondary"  expand="full"  [hidden]="hideAbandonFlag"
+          (click)="btnAbandonCallClick()">Abandon Call</ion-button>
+
+        <ion-button color="secondary"  expand="full" [hidden]="hideAuthorizationFlag"
+          (click)="btnAuthorizationRequiredClick()">Authorization Required</ion-button>
+
+        <ion-button color="secondary"  [hidden]="hideCompleteFlag" expand="full" 
+          (click)="CompleteClick()"> Complete </ion-button>
+
+        <ion-button color="secondary" expand="full" [hidden]= "hidecreateCertificateFlag"
+          (click)="CertificateClick()">Create Certificate</ion-button>
+
+          <ion-button color="secondary" [hidden]="hideBoilerInstallationReport" expand="full"
+          (click)="BoilerInstallClick()">Boiler Install Report</ion-button>
+
+          <ion-label [hidden]="hideComboLabel">  Please complete breakdown before Boiler Service </ion-label>
+
+          <ion-button color="secondary" [hidden]="hideStartService" expand="full"
+          (click)="StartServiceClick()">Start Service</ion-button>
+
+          <ion-button color="secondary" [hidden]="hideCannotComplete" expand="full"
+          (click)="CannotCompleteClick()">Cannot Complete Service</ion-button>
+<!-- 
+          <ion-button color='secondary' expand="full" (click)="syncRoute()">Sync </ion-button>
+
+          <ion-button color='secondary' expand="full" (click)="syncArrved()">Sync </ion-button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content> 
+
+
+
+<!-- 
+
+<ion-button color="secondary" [hidden]="hidestartServiceFlag" expand="full"
+(click)="InsertFromCertNoFutureJob(ServicedetailsList)">Start Service</ion-button>
+
+<ion-button color="secondary" [hidden]="hideCannotCompleteServiceFlag" expand="full"
+(click)="CannotCompleteClick(ServicedetailsList)">Cannot Complete Service</ion-button>
+
+ -->

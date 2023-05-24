@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Engineer Signature</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="canvasID">
+    <canvas id="Engsigcanvas" width="300" height="182"></canvas>
+  </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button color="medium" expand="full" [disabled]="isCanvasBlank()" (click)="save()"> Save</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="medium" expand="full" (click)="clear()"> Clear</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ </ion-content>

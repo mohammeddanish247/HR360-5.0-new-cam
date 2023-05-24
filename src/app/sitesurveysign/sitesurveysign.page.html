@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title style="font-size: 16px;">Site Survey Report Signature</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <p id="Para">Notes: Please describe any issue which the installer may face. </p>
+  <ion-card>
+    <ion-item [hidden]="describeIssueFlag">
+      <ion-textarea rows="6" cols="20" [(ngModel)]="describeIssue" placeholder="Write details here..."></ion-textarea>
+    </ion-item>
+  </ion-card>
+
+  <p id="Para">I the customer have read and understood the Terms & Conditions. I can also confirm that I have been given and understood advice in respect of the condition of my smoke detectors and carbon monoxide meters where present, or the recommendations to install these if not present. </p>
+
+  <h4 style="text-align: center;">Surveyor Signature</h4>
+  <div id="canvasID1">
+    <canvas id="Engsigcanvas1" width="300" height="182"></canvas>
+  </div>  
+  
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="medium" expand="full" [disabled]="isCanvasBlank1()" (click)="save1()"> Save</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="medium" expand="full" (click)="clear1()"> Clear</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h4 style="text-align: center;">Customer Signature</h4>
+  <div id="canvasID2">
+    <canvas id="Engsigcanvas2" width="300" height="182"></canvas>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="medium" expand="full" [disabled]="isCanvasBlank2()" (click)="save2()"> Save</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="medium" expand="full" (click)="clear2()"> Clear</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Surveyor Name</ion-label>
+      <ion-input type="text" [(ngModel)]="SurveyorName" placeholder="Enter the Installer Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Customer Name</ion-label>
+      <ion-input type="text" [(ngModel)]="CustomerName" placeholder="Enter the Customer Name"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <div>
+    <ion-button expand="block" color="secondary" (click)="SiteSurveySignature()">Save</ion-button>
+  </div>
+  <p id="Para">Important : First Click on Save to Save all work. </p>
+  <div>
+    <ion-button expand="block" color="secondary" (click)="notSpokenToCustomer()" [disabled]="hideflag">Not spoken to customer</ion-button>
+  </div>
+
+  <div>
+    <ion-button expand="block" color="secondary" (click)="customerNotInterested()" [disabled]="hideflag">Customer not interested</ion-button>
+  </div>
+
+  <div>
+    <ion-button expand="block" color="secondary" (click)="customerInterestedCallBack()" [disabled]="hideflag">Customer interested call back</ion-button>
+  </div>
+
+  <div>
+    <ion-button expand="block" color="secondary" (click)="customerInterestedHotKeyLive()" [disabled]="hideflag">Customer interested Hot Key Live</ion-button>
+  </div>
+
+
+</ion-content>
+
+
+<ion-footer>
+ 
+</ion-footer>

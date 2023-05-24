@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Boiler Installation Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>New Boiler Location</ion-label>
+      <ion-select interface="popover" [(ngModel)]="NewBoilerLocationSelect" (ionChange)="NewBoilerLocationClick()">
+        <ion-select-option value="Existing">Existing</ion-select-option>
+        <ion-select-option value="New">New</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item [hidden]="BoilerNew">
+      <ion-textarea rows="6" cols="30" [(ngModel)]="BoilerNewDetails" placeholder="Write details here...">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Flue</ion-label>
+      <ion-select [(ngModel)]="FlueSelect">
+        <ion-select-option value="Horizontal">Horizontal</ion-select-option>
+        <ion-select-option value="Vertical Pitched Roof">Vertical Pitched Roof</ion-select-option>
+        <ion-select-option value="Vertical Flat Roof">Vertical Flat Roof</ion-select-option>
+        <ion-select-option value="Vertical">Vertical</ion-select-option>
+        <ion-select-option value="Rear Entry">Rear Entry</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Flue extensions required</ion-label>
+      <ion-select [(ngModel)]="FlueextensionsSelect">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+        <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Stand Off Kit Required</ion-label>
+      <ion-select interface="popover" [(ngModel)]="StandOffKitSelect">
+        <ion-select-option value="YES">Yes</ion-select-option>
+        <ion-select-option value="NO">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>45 degree elbow required</ion-label>
+      <ion-select [(ngModel)]="FourtyfivedegreeelbowSelect">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>90 degree elbow required</ion-label>
+      <ion-select [(ngModel)]="NinetydegreeelbowSelect">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gas Run</ion-label>
+      <ion-select interface="popover" [(ngModel)]="GasRunSelect" (ionChange)="GasRunClick()">
+        <ion-select-option value="Existing">Existing</ion-select-option>
+        <ion-select-option value="New">New</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item [hidden]="GasRunNew">
+      <ion-textarea rows="6" cols="30" [(ngModel)]="GasRunNewDetails" placeholder="Write details here...">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Condensate Gas Run</ion-label>
+      <ion-select interface="popover" [(ngModel)]="CondensateGasSelect" (ionChange)="CondensateGasClick()">
+        <ion-select-option value="Existing">Existing</ion-select-option>
+        <ion-select-option value="New">New</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item [hidden]="CondensateGasNew">
+      <ion-textarea rows="6" cols="30" [(ngModel)]="CondensateGasNewDetails" placeholder="Write details here...">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-button color="secondary" expand="full" (click)="ValidateBInsForm()"> Save & Next  </ion-button>
+</ion-footer>

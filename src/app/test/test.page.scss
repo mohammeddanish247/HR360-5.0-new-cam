@@ -1,0 +1,45 @@
+
+p{
+    color: red;
+    align-content: center;
+    width: max-content;
+    height: fit-content;
+}
+ 
+#canvas_container {
+    width: 800px;
+    height: 450px;
+    overflow: auto;
+}
+
+#canvas_container {
+    background: #333;
+    text-align: center;
+    border: solid 3px;
+}
+
+.fixed-img {
+ 
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+     
+  }
+
+  .outerdiv{
+       
+      width: 100%;
+      height:  100%;
+  }
+
+  mat-select{
+      width: 100%;
+  }
+
+//      display: block;
+    // width: 250px;
+    // height: 250px;
+    // object-fit: cover

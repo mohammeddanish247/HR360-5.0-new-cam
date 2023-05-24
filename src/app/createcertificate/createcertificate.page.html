@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Appliances</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="space"></div>
+  <ion-item lines="none">
+    <ion-button  class="roundbutton1" color="secondary" shape="round" [disabled]="hideNewApplianceBtn" (click)="applianceNewClick()">Add new appliance</ion-button>
+  </ion-item>
+  <p class="ion-text-center" [hidden]="!hideNewApplianceBtn" > Cannot Add More Than 4 Appliance. </p>
+
+  <ion-card class="addedApp" *ngFor='let appliance of addedApplainces; let i = index'>
+    <ion-list>
+      <ion-item lines='none'>
+        <ion-icon name="trash" slot="end" (click)="deleteAppliance(appliance.sno, appliance.no)"></ion-icon>
+        <ion-icon name="create" slot="end" (click)="appliancedataUpdate(appliance.name,appliance.sno)"></ion-icon>
+        <ion-label>
+          <h2>{{appliance.no}} - &nbsp; {{appliance.name | uppercase}}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-card>
+
+  <div class="icon_container">
+    <ion-icon size="large" name="refresh-circle" (click)="reload()"></ion-icon>
+  </div>
+  
+</ion-content>
+
+
+<!-- <ion-item lines="none">
+  <ion-button color="secondary" shape="round" (click)="applianceDetailsClick()">Appliance Details</ion-button>
+</ion-item> -->
+
+
+<ion-footer>
+  <ion-button expand="full" color="secondary" (click)="applianceDetailsClick()" [disabled]="NextButton">Next</ion-button>
+</ion-footer>

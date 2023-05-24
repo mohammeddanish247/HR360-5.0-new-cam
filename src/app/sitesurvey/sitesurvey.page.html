@@ -1,0 +1,228 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Site Survey</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item id="Boiler">
+      <ion-label [ngStyle]="{'color': boilerFlag ? '#ff0000' : null }">New Boiler</ion-label>
+      <!-- <ion-label *ngIf="!boilers.length">Boilers name not available, please update make and model from settings.</ion-label> -->
+      <ion-select  [(ngModel)]="siteSurveyboiler" (ionChange)="NewBoilerLocationClick()">
+        <ion-select-option *ngFor="let boiler of boilers"  value="{{boiler}}">{{boiler}}</ion-select-option>
+        <ion-select-option  value="other">other</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="Boiler" *ngIf="isSiteSurveyboilerOther">
+      <ion-label>Boiler name</ion-label>
+      <ion-input [(ngModel)]="siteSurveyboiler"></ion-input>
+    </ion-item>
+
+    
+  <!-- <ion-item id="Boiler" (click)="openMakeModal()">
+    <ion-label [ngStyle]="{'color': boilerFlag ? '#ff0000' : null }">New Boiler Make</ion-label>
+    <ion-text class="ion-text-right" slot="end">{{MakeSelect}}</ion-text>
+  </ion-item>
+
+
+  <ion-item (click)="openModalModal()">
+    <ion-label [ngStyle]="{'color': boilerFlag ? '#ff0000' : null }">New Boiler Model</ion-label>
+    <ion-text class="ion-text-right" slot="end"> {{ModelSelect}}</ion-text>
+  </ion-item> -->
+
+
+    <ion-item id="DBoiler">
+      <ion-label [ngStyle]="{'color': boilerDescFlag ? '#ff0000' : null }">Describe the boiler required </ion-label>
+      <ion-select  [(ngModel)]="siteSurveyboilerdescription" (ionChange)="siteSurveyboilerdescriptionClick()">
+        <ion-select-option *ngFor="let description of descriptions"  value="{{description}}">{{description}}</ion-select-option>     
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item id="LBoiler">
+      <ion-label [ngStyle]="{'color': locationboilerFlag ? '#ff0000' : null }">Location of Boiler</ion-label>
+      <ion-select [(ngModel)]="locationboiler" (ionChange)="locationboilerClick()">
+        <ion-select-option *ngFor="let location of locations" value="{{location}}">{{location}}</ion-select-option>
+      </ion-select>
+
+    </ion-item>
+
+
+
+    <ion-item id="NBoilerL">
+      <ion-label [ngStyle]="{'color': NewBoilerLocationFlag ? '#ff0000' : null }">New Boiler Location</ion-label>
+      <ion-select interface="popover" [(ngModel)]="NewBoilerLocationSelect" (ionChange)="NewBoilerLocationExistingClick()">
+        <ion-select-option value="Existing">Existing</ion-select-option>
+        <ion-select-option value="New">New</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+    <ion-item *ngIf="NewBoilerLocationDescFlag" id="NewBoilerLocationDesc">
+      <ion-textarea (ionChange)="NewBoilerLocationDescClick()" [ngStyle]="{'color': NewBoilerLocationDescFFlag ? '#ff0000' : null }" rows="6" cols="30" [(ngModel)]="NewBoilerLocationDesc" placeholder="Write details here...">
+      </ion-textarea>
+    </ion-item>
+
+    
+    <ion-item id="Flue">
+      <ion-label [ngStyle]="{'color': flueflag ? '#ff0000' : null }">Flue</ion-label>
+      <ion-select [(ngModel)]="FlueSelect" (ionChange)="flueClick()">
+        <ion-select-option value="Horizontal">Horizontal</ion-select-option>
+        <ion-select-option value="Vertical Pitched Roof">Vertical Pitched Roof</ion-select-option>
+        <ion-select-option value="Vertical Flat Roof">Vertical Flat Roof</ion-select-option>
+        <ion-select-option value="Vertical">Vertical</ion-select-option>
+        <ion-select-option value="Rear Entry">Rear Entry</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="FlueExt">
+      <ion-label [ngStyle]="{'color': flueExtFlag ? '#ff0000' : null }">Flue extensions required</ion-label>
+      <ion-select [(ngModel)]="FlueextensionsSelect"  (ionChange)="flueExtClick()">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+        <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+
+    <ion-item id="StandOffKit">
+            <ion-label [ngStyle]="{'color': standOffKitFlag ? '#ff0000' : null }">Stand Off Kit Required</ion-label>
+      <ion-select interface="popover" [(ngModel)]="StandOffKitSelect"
+      (ionChange)="standOffKitClick()">
+        <ion-select-option value="YES">Yes</ion-select-option>
+        <ion-select-option value="NO">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="degree45elbow">
+      <ion-label [ngStyle]="{'color': FourtyfivedegreeelbowFlag ? '#ff0000' : null }">45 degree elbow required</ion-label>
+      <ion-select
+      (ionChange)="degree45elbowClick()"
+      [(ngModel)]="FourtyfivedegreeelbowSelect">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="degree90elbow">
+      <ion-label [ngStyle]="{'color': NinetydegreeelbowFlag ? '#ff0000' : null }">90 degree elbow required</ion-label>
+      <ion-select
+      (ionChange)="degree90elbowClick()" 
+      [(ngModel)]="NinetydegreeelbowSelect">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+      </ion-select>
+    </ion-item>
+     
+
+    <ion-item>
+      <ion-label>Does the property Have TRVs ?</ion-label>
+      <ion-select (ionChange)="trvs()" [(ngModel)]="trvs">
+        <ion-select-option value="0">0</ion-select-option>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+        <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+        <ion-select-option value="11">11</ion-select-option>
+        <ion-select-option value="12">12</ion-select-option>
+        <ion-select-option value="13">13</ion-select-option>
+        <ion-select-option value="14">14</ion-select-option>
+        <ion-select-option value="15">15</ion-select-option>
+      </ion-select>
+    </ion-item>
+     
+    
+    <ion-item id="StandingInletPressue">
+      <ion-label [ngStyle]="{'color': StandingInletPressueFlag ? '#ff0000' : null }" position="floating">Working Pressure @ meter</ion-label>
+       <ion-input (ionChange)="standingInletPressueClick()"  type="number" maxlength="5" [(ngModel)]="StandingInletPressue"></ion-input>
+    </ion-item>
+
+    <ion-item id="SSReason">
+            <ion-label [ngStyle]="{'color': SSReasonFlag ? '#ff0000' : null }">Site Survey Reason</ion-label>
+      <ion-select (ionChange)="ssReasonClick()"  [(ngModel)]="SiteSurveyReason">
+        <ion-select-option value="Repair/BER (Agent to confirm BER)">Repair/BER (Agent to confirm BER)</ion-select-option>
+        <ion-select-option value="Boiler over 10 years old">Boiler over 10 years old</ion-select-option>
+        <ion-select-option value="Engineer Recommendations">Engineer Recommendations</ion-select-option>
+        <ion-select-option value="Office Request">Office Request</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="SSPType">
+      <ion-label [ngStyle]="{'color': SSPTypeFlag ? '#ff0000' : null }">Site Survey Product Type</ion-label>
+      <ion-select  (ionChange)="ssPTypeClick()" interface="popover" [(ngModel)]="SiteSurveyProductType">
+        <ion-select-option value="Boiler Breakdown">Boiler Breakdown</ion-select-option>
+        <ion-select-option value="Boiler Service">Boiler Service</ion-select-option>
+        <ion-select-option value="Office Request">Office Request</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="gasRun">
+      <ion-label [ngStyle]="{'color': gasRunFlag ? '#ff0000' : null }">Gas Run</ion-label>
+      <ion-select interface="popover" [(ngModel)]="GasRunSelect" (ionChange)="GasRunClick()">
+        <ion-select-option value="Existing">Existing</ion-select-option>
+        <ion-select-option value="New">New</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item [hidden]="GasRunNewFlag" id="gasRunDesc">
+      <ion-textarea (ionChange)="gasRunDescClick()"  [ngStyle]="{'color': gasRunDescFlag ? '#ff0000' : null }" rows="6" cols="30" [(ngModel)]="GasRunNewDetails" placeholder="Describe the Route.......">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item id="Condensate">
+      <ion-label [ngStyle]="{'color': CondensateFlag ? '#ff0000' : null }">Condensate Gas Run</ion-label>
+      <ion-select interface="popover" [(ngModel)]="CondensateGasSelect" (ionChange)="CondensateGasClick()">
+        <ion-select-option value="Existing">Existing</ion-select-option>
+        <ion-select-option value="New">New</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item [hidden]="CondensateGasNewFlag" id="CondensateDesc">
+      <ion-textarea (ionChange)="condensateDescClick()"  [ngStyle]="{'color': CondensateDescFlag ? '#ff0000' : null }" rows="6" cols="30" [(ngModel)]="CondensateGasNewDetails" placeholder="Describe the Route.......">
+      </ion-textarea>
+    </ion-item>
+
+
+    <ion-item id="wip">
+      <ion-label [ngStyle]="{'color': wipFlag ? '#ff0000' : null }" position="floating">Working Inlet Pressure @ boiler</ion-label>
+      <ion-input (ionChange)="wipClick()" type="number" maxlength="5" [(ngModel)]="WorkingInletPressue" >  </ion-input>
+    </ion-item>
+
+
+  </ion-list>
+
+  
+  
+</ion-content>
+
+<ion-footer>
+    <ion-button color="secondary" expand="full" (click)="ValidateBInsForm()"> Save & Next  </ion-button>
+</ion-footer>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Appliances</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <ion-item>
+    <ion-label position="floating">Details of work carried out</ion-label>
+    <ion-textarea rows="6" cols="20" [(ngModel)]="Detailsworkcarriedout" placeholder="Write details here..." ></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Number of appliances tested</ion-label>
+    <ion-input type="number" inputmode="numeric" [(ngModel)]="appliancestestedNumber"
+     required placeholder="appliances tested No."></ion-input>
+  </ion-item>
+    
+  
+
+  <ion-item>
+    <ion-label position="floating">Next safety check due by</ion-label>
+    <ion-datetime display-format="DD/MM/YYYY" picker-format="DD MM YYYY" [min]="currentyear" [max]="lastyear"  [(ngModel)]="safetycheckDate" #safetycheck="ngModel" required placeholder="Tap here to enter Date"></ion-datetime>
+  </ion-item>
+
+  <div *ngIf="safetycheck.invalid && (safetycheck.dirty || safetycheck.touched)" class="validator-error">
+    <div *ngIf="safetycheck.errors.required">
+      Please select a valid date.
+    </div>
+  </div>
+</ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full"  color="secondary" (click)="saveNext()">Save & Next</ion-button>
+</ion-footer>

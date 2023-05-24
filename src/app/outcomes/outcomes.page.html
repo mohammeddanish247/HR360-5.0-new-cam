@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Outcomes of Test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+    <ion-radio-group allow-empty-selection [(ngModel)]="Outcomegasinstallation" #gas='ngModel' >
+     <ion-item lines="none">
+       <p>1.Outcome of gas installation pipework visual inspection?</p>
+     </ion-item>
+      <ion-item lines="full">
+        <ion-label>Pass</ion-label>
+        <ion-radio slot="end" color="primary" value="Pass"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>Fail</ion-label>
+        <ion-radio slot="end" color="primary" value="Fail"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>N/A</ion-label>
+        <ion-radio slot="end" color="primary" value="NA"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    </ion-card>
+  
+    <ion-card>
+    <ion-radio-group allow-empty-selection [(ngModel)]="Outcomegassupply" #gaspipe='ngModel' >
+       <ion-item lines="none">
+         <p>2.Outcome of gas supply pipework visual inspection?</p>
+       </ion-item>
+        <ion-item lines="full">
+          <ion-label>Pass</ion-label>
+          <ion-radio slot="end" color="primary" value="Pass"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>Fail</ion-label>
+          <ion-radio slot="end" color="primary" value="Fail"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>N/A</ion-label>
+          <ion-radio slot="end" color="primary" value="NA"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-card>
+
+    <ion-card>
+      <ion-radio-group allow-empty-selection [(ngModel)]="emergencycontrolvalveaccess" #ecv='ngModel' >
+       <ion-item lines="none">
+         <p>3.Is the emergency control valve access satisfactory?</p>
+       </ion-item>
+        <ion-item lines="full">
+          <ion-label>Yes</ion-label>
+          <ion-radio slot="end" color="primary" value="Yes"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>No</ion-label>
+          <ion-radio slot="end" color="primary" value="No"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>N/A</ion-label>
+          <ion-radio slot="end" color="primary" value="NA"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-card>
+
+    <ion-card>
+      <ion-radio-group allow-empty-selection [(ngModel)]="gastightnesstest" #gastight='ngModel' >
+       <ion-item lines="none">
+         <p>4.Outcome of gas tightness test?</p>
+       </ion-item>
+       <ion-item lines="full">
+        <ion-label>Pass</ion-label>
+        <ion-radio slot="end" color="primary" value="Pass"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>Fail</ion-label>
+        <ion-radio slot="end" color="primary" value="Fail"></ion-radio>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label>N/A</ion-label>
+        <ion-radio slot="end" color="primary" value="NA"></ion-radio>
+      </ion-item>
+      </ion-radio-group>
+    </ion-card>
+
+    <ion-card>
+      <ion-radio-group allow-empty-selection [(ngModel)]="protectiveequipotentialbonding" #pebs='ngModel'  >
+       <ion-item lines="none">
+         <p>5.Is the protective equipotential bonding satisfactory?</p>
+       </ion-item>
+        <ion-item lines="full">
+          <ion-label>Yes</ion-label>
+          <ion-radio slot="end" color="primary" value="Yes"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>No</ion-label>
+          <ion-radio slot="end" color="primary" value="No"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>N/A</ion-label>
+          <ion-radio slot="end" color="primary" value="NA"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-card>
+
+    <ion-card>
+      <ion-radio-group allow-empty-selection [(ngModel)]="COalarmFitted" #coalarmfit='ngModel' >
+       <ion-item lines="none">
+         <p>6.CO alarm Fitted</p>
+       </ion-item>
+        <ion-item lines="full">
+          <ion-label>Yes</ion-label>
+          <ion-radio slot="end" color="primary" value="Yes"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>No</ion-label>
+          <ion-radio slot="end" color="primary" value="No"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-card>
+
+    <ion-card>
+      <ion-radio-group allow-empty-selection [(ngModel)]="COalarmtested" #coalarmtest='ngModel' >
+       <ion-item lines="none">
+         <p>7.CO alarm tested</p>
+       </ion-item>
+        <ion-item lines="full">
+          <ion-label>Yes</ion-label>
+          <ion-radio slot="end" color="primary" value="Yes"></ion-radio>
+        </ion-item>
+    
+        <ion-item lines="full">
+          <ion-label>No</ion-label>
+          <ion-radio slot="end" color="primary" value="No"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-card>
+
+    <!-- <div style="margin-top: 3%;">
+      <ion-button expand="full"  color="secondary" (click)="OutComesDetailsClick()">Save & Next</ion-button>
+    </div> -->
+
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full"  color="secondary" (click)="OutComesDetailsClick()">Save & Next</ion-button>
+</ion-footer>
